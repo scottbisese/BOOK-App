@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
   // Note that .ejs file extension is not required
   res.render('pages/index');
 });
-app.
+
 // Creates a new search to the Google Books API
 app.post('/searches', createSearch);
 
@@ -32,9 +32,9 @@ app.listen(PORT, () => console.log(`Listening on port: ${PORT} , Baby`));
 
 // HELPER FUNCTIONS
 function Book(book) {
-  this.title = book.title;
-  this.author = book.authors || book.author;
-  this.description = book.description;
+  this.title = book.title ? book.title: 'no title available';
+  this.author = book.authors ? book.authors: 'no authors available';
+  this.description = book.description ? book.description: 'no description available';
   this.image = book.imageLinks ? book.imageLinks.thumbnail.replace(/^http/, 'https') : null
 }
 
@@ -51,13 +51,11 @@ function createSearch(request, response) {
   superagent.get(url)
     .then(apiResponse => {
       console.log(apiResponse.body.items[0])
-      return apiResponse.body.items.map(bookResult => new Book(bookResult.volumeInfo))
-      // /let items = apiResponse.body.items.slice(0, 9)
-      ;
+      return apiResponse.body.items.map(bookResult => new Book(bookResult.volumeInfo));
     })
     .then(results => {
-      console.log(results);
-      response.render('pages/results', {searchResults: results})
+      // console.log(results);
+      response.render('pages/searches/show', {searchResults: results})
     });
  
 

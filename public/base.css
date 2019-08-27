@@ -1,0 +1,38 @@
+body {
+    background-color: black;
+}
+
+h1 {
+    color: gray;
+}
+
+.book-container {
+    text-align: center;
+    margin: auto;
+    width: 400px;
+    background-color: maroon;
+    color: white;
+    font-size: 18px;
+}
+
+.searchResults {
+    text-decoration: none;
+}
+
+img {
+    margin:auto;
+    width: 400px;
+}
+
+h3, span {
+    float: center;
+}
+
+.description {
+    background-color: darkblue;
+}
+
+section {
+    background-color: goldenrod;
+}
+
