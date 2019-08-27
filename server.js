@@ -59,10 +59,7 @@ function createSearch(request, response) {
       console.log(results);
       response.render('pages/results', {searchResults: results})
     });
-    results.forEach((el) => {
-      results.push(el);
-      $('#output').append(`<div>${el.NAME}</div>`);
-    });
+ 
 
   // how will we handle errors?
 }
