@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
   // Note that .ejs file extension is not required
   res.render('pages/index');
 });
-
+app.
 // Creates a new search to the Google Books API
 app.post('/searches', createSearch);
 
@@ -35,10 +35,7 @@ function Book(book) {
   this.title = book.title;
   this.author = book.authors || book.author;
   this.description = book.description;
-  this.image = book.imageLinks.thumbnail || book.imageLinks.smallThumbnail;
-  // if (location.protocol != 'https:') {
-  //   location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-  // }
+  this.image = book.imageLinks ? book.imageLinks.thumbnail.replace(/^http/, 'https') : null
 }
 
 // No API key required
@@ -53,11 +50,19 @@ function createSearch(request, response) {
 
   superagent.get(url)
     .then(apiResponse => {
-      apiResponse.body.items.map(bookResult => new Book(bookResult.volumeInfo))
-      let items = apiResponse.body.items.slice(0, 9)
-      console.log(apiResponse.body.items);
+      console.log(apiResponse.body.items[0])
+      return apiResponse.body.items.map(bookResult => new Book(bookResult.volumeInfo))
+      // /let items = apiResponse.body.items.slice(0, 9)
+      ;
     })
-    .then(results => response.render('pages/searches/show', {searchResults: results}));
+    .then(results => {
+      console.log(results);
+      response.render('pages/results', {searchResults: results})
+    });
+    results.forEach((el) => {
+      results.push(el);
+      $('#output').append(`<div>${el.NAME}</div>`);
+    });
 
   // how will we handle errors?
 }
