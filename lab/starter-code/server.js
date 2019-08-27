@@ -36,9 +36,9 @@ function Book(book) {
   this.author = book.authors || book.author;
   this.description = book.description;
   this.image = book.imageLinks.thumbnail || book.imageLinks.smallThumbnail;
-  if (location.protocol != 'https:') {
-    location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-  }
+  // if (location.protocol != 'https:') {
+  //   location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+  // }
 }
 
 // No API key required
@@ -53,9 +53,11 @@ function createSearch(request, response) {
 
   superagent.get(url)
     .then(apiResponse => {
-      console.log(apiResponse.body.items[0]);
       apiResponse.body.items.map(bookResult => new Book(bookResult.volumeInfo))
+      let items = apiResponse.body.items.slice(0, 9)
+      console.log(apiResponse.body.items);
     })
     .then(results => response.render('pages/searches/show', {searchResults: results}));
+
   // how will we handle errors?
 }
