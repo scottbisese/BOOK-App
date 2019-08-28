@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('../layouts/header') %>
+    <h3>Library Size: <%= books.length %> </h3>
+    <ul class="searchResults">
+      <% books.forEach((book) => { %>
+      <li>
+        <!-- <li data-book-id="<%= book.isbn %>"> -->
+        <div class="book-container">
+          <img src= <%= book.image %>>
+          <section>
+            <h3><%= book.title %></h3>
+            <span> <%= book.author %></span>
+            <p class="description"><%= book.description %></p>
+          </section>
+        </div>
+      </li>
+      <% }); %>
+    </ul>
+  </body>
+</html>

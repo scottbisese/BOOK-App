@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <%- include('../partials/head') %>
     <title>Book Collection</title>
-    <link rel='stylesheet' href='base.css'>
   </head>
   <body>
-    <h1>hey man is this text orange?</h1>
+    <%- include('../layouts/header') %>
     <main>
       <h4>Search by Title or Author</h4>
       <form action="/searches" method="post">
@@ -13,7 +13,7 @@
         <fieldset>
           <label for="title">
             <span>Title</span>
-            <input type="radio" name="search" value="title" required>
+            <input type="radio" name="search" value="title" checked required>
           </label>
         </fieldset>
         <fieldset>
