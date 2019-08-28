@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="base.css" />
-    <link rel="stylesheet" href="layout.css" />
-
+    <%- include('../partials/head') %>
     <title>Document</title>
   </head>
   <body>
+    <%- include('../layouts/header') %>
+    <h3>Library Size: <%= books.length %> </h3>
     <ul class="searchResults">
-      <% searchResults.forEach((book) => { %>
+      <% books.forEach((book) => { %>
       <li>
         <!-- <li data-book-id="<%= book.isbn %>"> -->
         <div class="book-container">

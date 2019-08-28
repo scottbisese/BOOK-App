@@ -22,14 +22,19 @@ app.set('view engine', 'ejs');
 // Renders the search form
 app.get('/', (req, res) => {
   client.query('SELECT * FROM books;').then(books => {
-    console.log(books.rows);
-    res.render('pages/show', {books: books.rows});
+    res.render('pages/homepage', {books: books.rows});
   });
 });
 
 app.get('/search', (req, res) => { 
   // Note that .ejs file extension is not required
   res.render('pages/search');
+});
+
+
+app.get('/books/:id', (req, res) => {
+  console.log(req.params.id);
+  //res.render('pages/search');
 });
 
 // Creates a new search to the Google Books API
@@ -45,7 +50,7 @@ function Book(book) {
   this.title = book.title ? book.title: 'no title available';
   this.author = book.authors ? book.authors: 'no authors available';
   this.description = book.description ? book.description: 'no description available';
-  this.image = book.imageLinks ? book.imageLinks.thumbnail.replace(/^http/, 'https') : null
+  this.image = book.imageLinks ? book.imageLinks.thumbnail.replace(/^http/, 'https') : null;
   this.isbn = book.industryIdentifiers ? book.industryIdentifiers[0].identifier : 'Apologies! We cant find the ISBN...';
 }
 
@@ -56,8 +61,8 @@ function createSearch(request, response) {
   console.log(request.body);
   console.log(request.body.search);
 
-  if (request.body.search[1] === 'title') { url += `+intitle:${request.body.search[0]}`; }
-  if (request.body.search[1] === 'author') { url += `+inauthor:${request.body.search[0]}`; }
+  if (request.body.search[1] === 'title') { url += `intitle:${request.body.search[0]}`; }
+  if (request.body.search[1] === 'author') { url += `inauthor:${request.body.search[0]}`; }
 
   superagent.get(url)
     .then(apiResponse => {
@@ -66,7 +71,7 @@ function createSearch(request, response) {
     })
     .then(results => {
       // console.log(results);
-      response.render('pages/searches/show', {books: results})
+      response.render('pages/show', {books: results})
     });
  
 

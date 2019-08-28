@@ -1,9 +1,10 @@
 body {
-    background-color: black;
+    background-color: plum;
 }
 
 h1 {
     color: gray;
+    float: left;
 }
 
 .book-container {
@@ -34,5 +35,20 @@ h3, span {
 
 section {
     background-color: goldenrod;
+}
+
+#navButton {
+    width: 5vmin;
+    height: 5vmin;
+    float: right;
+
+}
+
+#header {
+    background-color: gray;
+    width: 100vw;
+    height: 5vh;
+    padding: 20px;
+    
 }
 
