@@ -1,29 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('../partials/head') %>
-    <title>Document</title>
-  </head>
-  <body>
-    <%- include('../layouts/header') %>
-    <ul class="searchResults">
-      <% books.forEach((book) => { %>
-      <li>
-        <!-- <li data-book-id="<%= book.isbn %>"> -->
-          <!-- <span> <%= book.author %></span>
-            <p class="description"><%= book.description %></p>-->
-        <form class="hidden-form" action="">
 
-        </form>
-        <div class="book-container">
-          <img src= <%= book.image %>>
-          <section>
-            <h3><%= book.title %></h3>
-            <button>View Details</button>
-          </section>
-        </div>
-      </li>
-      <% }); %>
-    </ul>
-  </body>
+<head>
+  <%- include('../partials/head') %>
+  <title>Document</title>
+  <link rel="stylesheet" href="/modules/bookview.css">
+</head>
+
+<body>
+  <%- include('../partials/header') %>
+  <ul class="searchResults">
+    <% books.forEach((book) => { %>
+    <li>
+      <!-- <li data-book-id="<%= book.isbn %>"> -->
+      <!-- <span> <%= book.author %></span>
+            <p class="description"><%= book.description %></p>-->
+      <form class="hidden-form" action="">
+
+      </form>
+      <div class="book-container">
+        <img src=<%= book.image %>>
+        <section>
+          <h3 class='title'><%= book.title %></h3>
+          <button class="show-form"> Select this Book</button>
+          <form id="<%=book.isbn%>" action="/books" method="post" class="hidden">
+            <label for="<%=book.isbn%>-title">Title:</label>
+            <input id="<%=book.isbn%>-title" name="title" type="text" value="<%= book.title %>" required>
+            <br>
+            <label for="<%=book.isbn%>-author">Author:</label>
+            <input id="<%=book.isbn%>-author" name="author" type="text" value="<%= book.author %>" required>
+            <br>
+            <label for="<%=book.isbn%>-description">Description:</label>
+            <input id="<%=book.isbn%>-description" name="description" type="text" value="<%= book.description %>" required>
+            <br>
+            <label for="<%=book.isbn%>-isbn">ISBN:</label>
+            <input id="<%=book.isbn%>-isbn" name="isbn" type="text" value="<%= book.isbn %>" required >
+            <br>
+            <label for="<%=book.isbn%>-bookshelf">Bookshelf Name:</label>
+            <input id="<%=book.isbn%>-bookshelf" name="bookshelf" type="text" value="<%= book.bookshelf %>" required>
+            <br>
+            <label for="<%=book.isbn%>-image">Image URL:</label>
+            <input id="<%=book.isbn%>-image" name="image" type="text" value="<%= book.image %>" required>
+            <br>
+            <input id="<%=book.isbn%>-submit" name="submit" type="submit" value="Submit">
+          </form>
+        </section>
+      </div>
+    </li>
+    <% }); %>
+  </ul>
+</body>
+
 </html>
