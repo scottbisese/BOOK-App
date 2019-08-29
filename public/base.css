@@ -1,11 +1,13 @@
 body {
-    background-color: plum;
+    background-color: lightgray;
 }
 
 #main-title {
-    color: BLACK;
-    float: left;
-    font-size: 250%;
+    color: white;
+    font-size: 280%;
+    font-family: 'Amatic SC', cursive;
+    font-weight: 900;
+    
 }
 
 .searchResults {
@@ -13,8 +15,8 @@ body {
     text-align: center;
 }
 
-img {
-    margin:auto;
+.bookImg {
+    
     width: 400px;
 }
 
@@ -29,14 +31,18 @@ h3, span {
 #navButton {
     width: 5vmin;
     height: 5vmin;
-    float: right;
+    justify-self: flex-start;
 }
 
 #header {
     background-color: gray;
-    max-width: 100%;
+    width: 100vw;
     height: 32px;
     padding: 20px;
+    position: fixed;
+    top: 0px;
+    display: flex;
+    justify-content:space-between;
     
 }
 

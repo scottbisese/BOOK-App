@@ -12,16 +12,6 @@
       <li><h3 id='library-size'>Library Size: <%= books.length %> </h3></li>
       <% books.forEach((book) => { %>
       <li>
-        <!-- <li data-book-id="<%= book.isbn %>"> <span> <%= book.author %></span>
-            <p class="description"><%= book.description %></p>-->
-            
-          <!-- id SERIAL PRIMARY KEY,
-  title VARCHAR(255),
-  author VARCHAR(255),
-  image VARCHAR(1000),
-  isbn VARCHAR(15),
-  description VARCHAR(255),
-  bookshelf VARCHAR(255)-->
         <form id="<%= book.isbn; %>" action="/books/<%= book.id %>" method="POST" class="hidden">
           <input name="title" type="text" value="<%= book.title %>">
           <input name="author" type="text" value="<%= book.author %>">
@@ -31,7 +21,7 @@
           <input name="image" type="text" value="<%= book.image %>">
         </form>
         <div class="book-container">
-          <img src= <%= book.image %>>
+          <img class="bookImg" src= <%= book.image %>>
           <section>
             <h3 class='title'><%= book.title %></h3>
             <input class='view-details' type="submit" form="<%= book.isbn; %>" value="View Details">
@@ -40,7 +30,5 @@
       </li>
       <% }); %>
     </ul>
-    <h4> hi</h4>
   </body>
 </html>
-      -->
