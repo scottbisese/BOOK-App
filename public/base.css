@@ -2,22 +2,15 @@ body {
     background-color: plum;
 }
 
-h1 {
-    color: gray;
+#main-title {
+    color: BLACK;
     float: left;
-}
-
-.book-container {
-    text-align: center;
-    margin: auto;
-    width: 400px;
-    background-color: maroon;
-    color: white;
-    font-size: 18px;
+    font-size: 250%;
 }
 
 .searchResults {
     text-decoration: none;
+    text-align: center;
 }
 
 img {
@@ -33,22 +26,20 @@ h3, span {
     background-color: darkblue;
 }
 
-section {
-    background-color: goldenrod;
-}
-
 #navButton {
     width: 5vmin;
     height: 5vmin;
     float: right;
-
 }
 
 #header {
     background-color: gray;
-    width: 100vw;
-    height: 5vh;
+    max-width: 100%;
+    height: 32px;
     padding: 20px;
     
 }
 
+.hidden {
+    display: none;
+}
