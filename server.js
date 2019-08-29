@@ -34,7 +34,6 @@ app.get('/search', (req, res) => {
 
 app.get('/books/:id', (req, res) => {
   console.log(req.params.id);
-  //res.render('pages/search');
 });
 
 // Creates a new search to the Google Books API
@@ -57,7 +56,7 @@ function Book(book) {
 // No API key required
 function createSearch(request, response) {
   let url = 'https://www.googleapis.com/books/v1/volumes?q=';
-
+  
   console.log(request.body);
   console.log(request.body.search);
 

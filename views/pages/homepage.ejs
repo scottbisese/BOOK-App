@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
   <head>
     <%- include('../partials/head') %>
@@ -10,17 +10,34 @@
     <ul class="searchResults">
       <% books.forEach((book) => { %>
       <li>
-        <!-- <li data-book-id="<%= book.isbn %>"> -->
+        <!-- <li data-book-id="<%= book.isbn %>"> <span> <%= book.author %></span>
+            <p class="description"><%= book.description %></p>-->
+            
+          <!-- id SERIAL PRIMARY KEY,
+  title VARCHAR(255),
+  author VARCHAR(255),
+  image VARCHAR(1000),
+  isbn VARCHAR(15),
+  description VARCHAR(255),
+  bookshelf VARCHAR(255)-->
+        <form id="<%= book.isbn; %>" class="hidden"></section>
+          <input name="title" type="text" value="<%= book.title %>">
+          <input name="author" type="text" value="<%= book.author %>">
+          <input name="description" type="text" value="<%= book.description %>">
+          <input name="isbn" type="text" value="<%= book.isbn %>">
+          <input name="bookshelf" type="text" value="<%= book.bookshelf %>">
+          <input name="image" type="text" value="<%= book.image %>">
         <div class="book-container">
           <img src= <%= book.image %>>
           <section>
             <h3><%= book.title %></h3>
-            <span> <%= book.author %></span>
-            <p class="description"><%= book.description %></p>
+          
           </section>
         </div>
       </li>
       <% }); %>
     </ul>
+    <h4> hi</h4>
   </body>
 </html>
+      -->
