@@ -1,0 +1,52 @@
+.book-container {
+  text-align: center;
+  margin: auto;
+  margin-top: 5%;
+  padding: 3%;
+  width: 400px;
+  background-color: darkslategrey;
+  color: white;
+  font-size: 18px;
+  border-radius: 15px;
+}
+
+.book-container .title {
+  font-size: 200%;
+  margin-bottom: 1%;
+}
+
+.book-container img {
+  border-radius: 15px;
+  background-color: pink;
+}
+
+.book-container .author {
+  font-size: 150%;
+  font-style: italic;
+  margin-bottom: 6%;
+}
+
+.book-container .isbn {
+  font-size: 125%;
+  margin-bottom: 1%;
+}
+
+.book-container .bookshelf {
+  font-size: 125%;
+  margin-bottom: 1%;
+}
+
+.book-container .description {
+  padding: 3%;
+  border-radius: 0 0 15px 15px;
+}
+
+.book-container .view-details {
+  margin-top: 5%;
+  font-size: 120%;
+  width: 50%;
+  padding: 5%;
+  background-color: white;
+  border: none;
+  border-radius: 15px;
+}

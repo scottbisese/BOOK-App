@@ -1,26 +1,22 @@
 body {
-    background-color: black;
+    background-color: lightgray;
 }
 
-h1 {
-    color: gray;
-}
-
-.book-container {
-    text-align: center;
-    margin: auto;
-    width: 400px;
-    background-color: maroon;
+#main-title {
     color: white;
-    font-size: 18px;
+    font-size: 280%;
+    font-family: 'Amatic SC', cursive;
+    font-weight: 900;
+    
 }
 
 .searchResults {
     text-decoration: none;
+    text-align: center;
 }
 
-img {
-    margin:auto;
+.bookImg {
+    
     width: 400px;
 }
 
@@ -32,7 +28,24 @@ h3, span {
     background-color: darkblue;
 }
 
-section {
-    background-color: goldenrod;
+#navButton {
+    width: 5vmin;
+    height: 5vmin;
+    justify-self: flex-start;
 }
 
+#header {
+    background-color: gray;
+    width: 100vw;
+    height: 32px;
+    padding: 20px;
+    position: fixed;
+    top: 0px;
+    display: flex;
+    justify-content:space-between;
+    
+}
+
+.hidden {
+    display: none;
+}
