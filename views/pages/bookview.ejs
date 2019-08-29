@@ -14,7 +14,31 @@
         <h3 class='author'> <%= book.author %></h3>
         <h3 class='isbn'>ISBN: <%= book.isbn %></h3>
         <h3 class='bookshelf'>Shelf: <%= book.bookshelf %></h3>
-        <p class="description"><%= book.description %></p>
+        <p class="description"><%= book.description %></p> 
+
+        <button class="show-form"> Update this Book</button>
+        <form id="<%=book.isbn%>" action="/books" method="post" class="hidden">
+          <label for="<%=book.isbn%>-title">Title:</label>
+          <input id="<%=book.isbn%>-title" name="title" type="text" value="<%= book.title %>" required>
+          <br>
+          <label for="<%=book.isbn%>-author">Author:</label>
+          <input id="<%=book.isbn%>-author" name="author" type="text" value="<%= book.author %>" required>
+          <br>
+          <label for="<%=book.isbn%>-description">Description:</label>
+          <input id="<%=book.isbn%>-description" name="description" type="text" value="<%= book.description %>" required>
+          <br>
+          <label for="<%=book.isbn%>-isbn">ISBN:</label>
+          <input id="<%=book.isbn%>-isbn" name="isbn" type="text" value="<%= book.isbn %>" required >
+          <br>
+          <label for="<%=book.isbn%>-bookshelf">Bookshelf Name:</label>
+          <input id="<%=book.isbn%>-bookshelf" name="bookshelf" type="text" value="<%= book.bookshelf %>" required>
+          <br>
+          <label for="<%=book.isbn%>-image">Image URL:</label>
+          <input id="<%=book.isbn%>-image" name="image" type="text" value="<%= book.image %>" required>
+          <br>
+          <input id="<%=book.isbn%>-submit" name="submit" type="submit" value="Submit">
+        </form>
+        
       </section>
     </div>
   </body>
